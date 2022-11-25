@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <body ng-app="">
+        Register Information? <input type="checkbox" ng-model="myVar" ng-init="myVar=false"> 
+                      <input type="checkbox" ng-model="myVar2" ng-init="myVar2=false">
+
+        <div ng-if="myVar">
+            <p>Personal Information</p>
+            <label>Full Name: </label>
+            <input type="text">
+            <label>Address: </label>
+            <input type="text">
+            <label>Contact Number:</label>
+            <input type="text">
+        </div>
+
+        
+        <div ng-if="myVar2"> <!--ng-if-->
+            <p>Additional Information</p>
+            <label>Email: </label>
+            <input type="text">
+            <label>Job: </label>
+            <input type="password">
+             <label>Salary: </label>
+            <input type="text">
+            
+        </div>
+
+        <div><!--ng-readonly-->
+            <label>Click me to make text into readonly: </label> 
+            <input type="checkbox" ng-model="checked"> </br>
+            <input type="text" ng-readonly="checked" value=""/>
+        </div>
+
+        <div><!--ng-disabled-->
+            <label>Click me to make text disabled: </label> 
+            <input type="checkbox" ng-model="dis"> </br>
+            <input type="text" ng-disabled="dis" value=""/>
+        </div>
+
+        <body ng-app="">
+            <h1>Welcome You Can Now Login</h1>
+            <h2>Registration/Login</h2>
+            <form name="form">
+                <div ng-hide="toShow">
+                    Enter Username:
+                    <input type="text" required ng-model="Name"/>
+                    <br>
+                    <br>
+                
+                </div>
+
+                <div ng-hide="toShow">
+                    Enter Password:
+                    <input type="password" required ng-model="Password"/>
+                    <br>
+                    <br>
+                    <input type="button" ng-disabled="form.$invalid" ng-click="toShow = true" value="Sign In"/>
+                </div>
+                   
+                <div ng-show="toShow">
+                    Sign In successful!
+                    <br>
+                    <input type="button" ng-click="toShow=false" value="Logout"/>
+                </div>
+            </form>
+    </body>
+</html>
